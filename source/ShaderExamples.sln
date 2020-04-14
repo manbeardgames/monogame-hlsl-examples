@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1062
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example01ApplyShader", "..\Example01ApplyShader\Example01ApplyShader.csproj", "{B4EBC27B-9998-4CC3-A472-89708C537782}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example02PassingValuesToShader", "Example02PassingValuesToShader\Example02PassingValuesToShader.csproj", "{401F0B92-F50C-43FB-8D8D-FAC58FA3E177}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example03UsingMultipleTextures", "Example03UsingMultipleTextures\Example03UsingMultipleTextures.csproj", "{67F843F4-8116-45E1-B16B-BED995E53F83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example01ApplyShader", "Example01ApplyShader\Example01ApplyShader.csproj", "{B4EBC27B-9998-4CC3-A472-89708C537782}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B4EBC27B-9998-4CC3-A472-89708C537782}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B4EBC27B-9998-4CC3-A472-89708C537782}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B4EBC27B-9998-4CC3-A472-89708C537782}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B4EBC27B-9998-4CC3-A472-89708C537782}.Release|Any CPU.Build.0 = Release|Any CPU
 		{401F0B92-F50C-43FB-8D8D-FAC58FA3E177}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{401F0B92-F50C-43FB-8D8D-FAC58FA3E177}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{401F0B92-F50C-43FB-8D8D-FAC58FA3E177}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{67F843F4-8116-45E1-B16B-BED995E53F83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67F843F4-8116-45E1-B16B-BED995E53F83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67F843F4-8116-45E1-B16B-BED995E53F83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4EBC27B-9998-4CC3-A472-89708C537782}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4EBC27B-9998-4CC3-A472-89708C537782}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4EBC27B-9998-4CC3-A472-89708C537782}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4EBC27B-9998-4CC3-A472-89708C537782}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

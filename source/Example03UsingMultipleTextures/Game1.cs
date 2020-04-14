@@ -78,11 +78,24 @@ namespace Example03UsingMultipleTextures
             GraphicsDevice.Clear(Color.Black);
 
             //  First let set the paramaters of our shader.  We need to give it two 
-            //  tetures, one for Character01 and one for Character02.  We also need
-            //  to give it a value for the ElapsedTime paramater, which is the amount
-            //  of time that has passed in the game, in seconds.
-            _blendShader.Parameters["Character01"].SetValue(_characterTexture01);
+            //  tetures, one for Character01 and one for Character02.  So here's a bit of an 
+            //  interesting note.  If we, right now, assign a value to "Character01" in the shader
+            //  that value will be overwritten.  Since it is the first Texture2D object in our shader
+            //  file, MonoGame will assign the texture being rendered in the SpriteBatch.Draw call
+            //  to that Texture2D in the shader.  So we actually only need to set the Character02
+            //  Texture2D in the shader here.
             _blendShader.Parameters["Character02"].SetValue(_characterTexture02);
+
+            //  If you want a proof/example of what I said above about the texture assignment,
+            //  uncomment the line below and watch what happens.  In this line, we explicitly set
+            //  the Character01 texture to be the _characterTexture02.  So this should make it so
+            //  our shader is blending back and forth between the same texture, and we don't see any
+            //  happen.  Hoever, the spriteBatch.Draw() call uses _characterTexture01, so that will
+            //  overwrite the value in the shader and it will still work.  Just be careful with the
+            //  gatcha when doing shaders, it can be confusing
+            //_blendShader.Parameters["Character01"].SetValue(_characterTexture02);
+
+            //  We also will give the shader the elapsed game time in seconds.
             _blendShader.Parameters["ElapsedTime"].SetValue((float)gameTime.TotalGameTime.TotalSeconds);
 
             //  Next lets load our shader in using the effect paramater in SpriteBatch.Begin().

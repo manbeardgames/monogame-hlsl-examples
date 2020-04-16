@@ -25,9 +25,13 @@ In the **Example01ApplyShader** project, we do nothing special other than just a
 In the **Example02PassingValuesToShader** project, an example is given to show how to pass a value from the game code to the shader code.  This is useful to set things like which texture to use, timing values, etc.  Be sure to read the information in both the Game1.cs file and the shader .fx file
 
 ### Example 03: Using Multiple Textures
-In the **Example03UsingMultipleTextures** project, an example is given on passing multiple textures to a shader to use.  In this example in particular, we pass two textures to the shader, and using a a timing property with a sine wave, we blend back and forth between the two textures over time.  Be srue to read the information in both the Game1.cs file and the shader.fx file.
+In the **Example03UsingMultipleTextures** project, an example is given on passing multiple textures to a shader to use.  In this example in particular, we pass two textures to the shader, and using a a timing property with a sine wave, we blend back and forth between the two textures over time.  Be sure to read the information in both the Game1.cs file and the shader.fx file.
+
+### Example 04: Simple 2D Lighting
+In the **Example04Simple2DLighting** project, an example is given on how to create 2D lighting.  This is a super
+simple method that uses a trick to create the illusion of lighting. We make use of multiple render targets, one for where the lighting is and one to render the game to, then we blend them together using the shader. This is not useful for creating realtime 2D shadow efects, but is a useful cheap trick for givin the illuision of a light source for things like torches and fires.
 
 # License
-All code written for this project is free and open sourced under the MIT License.  See the LICENSE file for more information.
+All code and images written and used for this project are free and open sourced under the MIT License, unless otherwise stated below.  See the LICENSE file for more information.
 
-All artwork used is from http://www.kenney.nl and is licensed seperatly under CC0 license.  See the ARTWORKLICENSE file for more information.
+The character, character01, and character02 images used in Example project 01, 02, and 03 are from http://www.kenney.nl and are licensed seperatly under CC0 license.  See the ARTWORKLICENSE file for more information.

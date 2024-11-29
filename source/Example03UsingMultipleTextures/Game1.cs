@@ -18,7 +18,7 @@
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
+using Microsoft.Xna.Framework.Input;
 
 namespace Example03UsingMultipleTextures
 {
@@ -54,6 +54,13 @@ namespace Example03UsingMultipleTextures
             graphics.ApplyChanges();
         }
 
+        protected override void Initialize()
+        {
+            // TODO: Add your initialization logic here
+
+            base.Initialize();
+        }
+
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
@@ -73,12 +80,23 @@ namespace Example03UsingMultipleTextures
             _blendShader = Content.Load<Effect>(@"BlendShader");
         }
 
+
+        protected override void Update(GameTime gameTime)
+        {
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                Exit();
+
+            // TODO: Add your update logic here
+
+            base.Update(gameTime);
+        }
+
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
 
             //  First let set the paramaters of our shader.  We need to give it two 
-            //  tetures, one for Character01 and one for Character02.  So here's a bit of an 
+            //  textures, one for Character01 and one for Character02.  So here's a bit of an 
             //  interesting note.  If we, right now, assign a value to "Character01" in the shader
             //  that value will be overwritten.  Since it is the first Texture2D object in our shader
             //  file, MonoGame will assign the texture being rendered in the SpriteBatch.Draw call
@@ -90,9 +108,9 @@ namespace Example03UsingMultipleTextures
             //  uncomment the line below and watch what happens.  In this line, we explicitly set
             //  the Character01 texture to be the _characterTexture02.  So this should make it so
             //  our shader is blending back and forth between the same texture, and we don't see any
-            //  happen.  Hoever, the spriteBatch.Draw() call uses _characterTexture01, so that will
+            //  happen.  However, the spriteBatch.Draw() call uses _characterTexture01, so that will
             //  overwrite the value in the shader and it will still work.  Just be careful with the
-            //  gatcha when doing shaders, it can be confusing
+            //  gotcha when doing shaders, it can be confusing
             //_blendShader.Parameters["Character01"].SetValue(_characterTexture02);
 
             //  We also will give the shader the elapsed game time in seconds.
@@ -130,39 +148,5 @@ namespace Example03UsingMultipleTextures
 
             base.Draw(gameTime);
         }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // ------------------------------------------------------------------------
-    //
-    //
-    //
-    //
-    //
-    //
-    //  Ignore the below. I've just moved the Program.cs class file into this file
-    //  so that there is only one .cs file in the project to be concerned with.
-    //  Don't edit below this line.
-    // ------------------------------------------------------------------------
-    public static class Program
-    {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main() { using (var game = new Game1()) { game.Run(); } }
     }
 }

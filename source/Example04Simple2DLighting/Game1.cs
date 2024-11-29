@@ -6,7 +6,7 @@
 //  it is a cave with four fires placed in the top-left, bottom-left, top-right,
 //  and bottom-right of the room.
 //
-//  To create the "light" effect, we make use of a texture is a gradient circle
+//  To create the "light" effect, we make use of a texture as a gradient circle
 //  that is white in the middle, and gets darker towards it's edges.  We'll render
 //  this texture at each location in the game screen where a light source would be,
 //  but we'll be rendering it to it's own render target
@@ -19,7 +19,7 @@
 //  pixel to use when rendering the game's render target.
 //
 //  A couple of things to note here.
-//  1)  When rendering the light textures, the blend state is set to BlendState.AdditiceBlend
+//  1)  When rendering the light textures, the blend state is set to BlendState.AdditiveBlend
 //  2)  When rendering the game screen and the final render target, the blend state is set 
 //      to BlendState.AlphaBlend
 //  3)  The texture used for the light mask is a 128x128 texture.  This means each "light"
@@ -33,16 +33,19 @@
 //
 //  As always, be sure to check out the shader effect file at "Content\SimpleLightShader.fx"
 // ----------------------------------------------------------------------------
-using Example04Simple2DLighting.GameObjects;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+
+using Example04Simple2DLighting.GameObjects;
 using System;
 
 namespace Example04Simple2DLighting
 {
     public class Game1 : Game
     {
+
         //  The manager used to mange the the device that presents the graphics.
         private GraphicsDeviceManager graphics;
 
@@ -78,6 +81,14 @@ namespace Example04Simple2DLighting
             IsMouseVisible = true;
             graphics.ApplyChanges();
         }
+
+        protected override void Initialize()
+        {
+            // TODO: Add your initialization logic here
+
+            base.Initialize();
+        }
+
 
         //  A lot of code is written here, but it's mostly not important at all
         //  for the shader relevant parts of this example.  This just loads the 
@@ -275,39 +286,5 @@ namespace Example04Simple2DLighting
             spriteBatch.Draw(_mainTarget, Vector2.Zero, Color.Red);
             spriteBatch.End();
         }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // ------------------------------------------------------------------------
-    //
-    //
-    //
-    //
-    //
-    //
-    //  Ignore the below. I've just moved the Program.cs class file into this file
-    //  so that there is only one .cs file in the project to be concerned with.
-    //  Don't edit below this line.
-    // ------------------------------------------------------------------------
-    public static class Program
-    {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main() { using (var game = new Game1()) { game.Run(); } }
     }
 }

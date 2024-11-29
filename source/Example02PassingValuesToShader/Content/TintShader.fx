@@ -17,7 +17,7 @@
 //	somewhere external to the shader.  This means it is a variable we can pass
 //	the value of from within our C# code.  
 //
-//	It shoudl also be noted that by default, all global variables are 'extern'.
+//	It should also be noted that by default, all global variables are 'extern'.
 //	So if no modifier is given, it is understood that it is extern.  However,
 //	just like how in C# variables are private by default, even though the 
 //	modifier is implicit, we should explicity state it so it clearly shows
@@ -33,7 +33,7 @@ sampler2D SpriteTextureSampler = sampler_state
 	Texture = <SpriteTexture>;
 };
 
-//	This is the "output" fromt he vertex shader that we'll use as the
+//	This is the "output" from the vertex shader that we'll use as the
 //	"input" to the pixel shader.  We don't have a vertex shader function
 //	defined, so these values will be the default values where 
 //
@@ -48,7 +48,7 @@ struct VertexShaderOutput
 	float2 TextureCoordinates : TEXCOORD0;
 };
 
-//	This is our Pixel Shader function.  It takes in the output fro the vertex shader
+//	This is our Pixel Shader function.  It takes in the output from the vertex shader
 //	and returns back a float4 containing the color data for the pixel.
 float4 MainPS(VertexShaderOutput input) : COLOR
 {

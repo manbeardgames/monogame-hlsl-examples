@@ -15,7 +15,9 @@
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
+using System.Diagnostics;
 
 namespace Example02PassingValuesToShader
 {
@@ -45,6 +47,13 @@ namespace Example02PassingValuesToShader
             _graphics.ApplyChanges();
         }
 
+        protected override void Initialize()
+        {
+            // TODO: Add your initialization logic here
+
+            base.Initialize();
+        }
+
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
@@ -59,6 +68,16 @@ namespace Example02PassingValuesToShader
 
             //  Load our shader effect in here
             _tintShader = Content.Load<Effect>(@"TintShader");
+        }
+
+        protected override void Update(GameTime gameTime)
+        {
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                Exit();
+
+            // TODO: Add your update logic here
+
+            base.Update(gameTime);
         }
 
         /// <summary>
@@ -109,39 +128,5 @@ namespace Example02PassingValuesToShader
 
             base.Draw(gameTime);
         }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // ------------------------------------------------------------------------
-    //
-    //
-    //
-    //
-    //
-    //
-    //  Ignore the below. I've just moved the Program.cs class file into this file
-    //  so that there is only one .cs file in the project to be concerned with.
-    //  Don't edit below this line.
-    // ------------------------------------------------------------------------
-    public static class Program
-    {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main() { using (var game = new Game1()) { game.Run(); } }
     }
 }

@@ -17,13 +17,10 @@
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
+using Microsoft.Xna.Framework.Input;
 
 namespace Example01ApplyShader
 {
-    /// <summary>
-    /// This is the main type for your game.
-    /// </summary>
     public class Game1 : Game
     {
         //  The manager used to mange the the device that presents the graphics.
@@ -50,10 +47,13 @@ namespace Example01ApplyShader
             graphics.ApplyChanges();
         }
 
-        /// <summary>
-        /// LoadContent will be called once per game and is the place to load
-        /// all of your content.
-        /// </summary>
+        protected override void Initialize()
+        {
+            // TODO: Add your initialization logic here
+
+            base.Initialize();
+        }
+
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
@@ -66,12 +66,22 @@ namespace Example01ApplyShader
             _basicShader = Content.Load<Effect>(@"BasicShader");
         }
 
+        protected override void Update(GameTime gameTime)
+        {
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                Exit();
+
+            // TODO: Add your update logic here
+
+            base.Update(gameTime);
+        }
+
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
 
             //  To use the shader effect, all we have to do is load it into the spriteBatch.Begin()'s parameters
-            //  Since this shader doesn't do anything special and jsut renders the sprite normaly, when you 
+            //  Since this shader doesn't do anything special and just renders the sprite normaly, when you 
             //  run the game, it will look no diferent than the one rendered below without the effect.
             //
             spriteBatch.Begin(effect: _basicShader);
@@ -102,39 +112,5 @@ namespace Example01ApplyShader
 
             base.Draw(gameTime);
         }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // ------------------------------------------------------------------------
-    //
-    //
-    //
-    //
-    //
-    //
-    //  Ignore the below. I've just moved the Program.cs class file into this file
-    //  so that there is only one .cs file in the project to be concerned with.
-    //  Don't edit below this line.
-    // ------------------------------------------------------------------------
-    public static class Program
-    {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main() { using (var game = new Game1()) { game.Run(); } }
     }
 }

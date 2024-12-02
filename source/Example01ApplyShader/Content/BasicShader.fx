@@ -6,10 +6,10 @@
 //	MonoGame Content Pipeline Tool when you do Add > New Item > Effect
 //
 //	All shaders for MonoGame are written in HLSL (High Level Shader Language).
-//	This is the shader langauge uses for DirectX applications.  If your MonoGame
+//	This is the shader langauge used for DirectX applications.  If your MonoGame
 //	project is using OpenGL (i.e. MonoGame Cross Platform Desktop Project), then
 //	the Content Pipeline Tool converts the HLSL code you write here into GLSL.
-//	Howveer, when writing the shader effect files, keep in mind we'll be doing it
+//	However, when writing the shader effect files, keep in mind we'll be doing it
 //	in HLSL.
 //
 //
@@ -22,7 +22,7 @@
 
 //	By appending the #if OPENGL directive here, when the shader is complied, if
 //	you are using the MonoGame Cross Platform project type (OpenGL), then it will
-//	define the SV_POSITION as a POSITIOn type, and it will also defin the vertex
+//	define the SV_POSITION as a POSITION type, and it will also define the vertex
 //	shader model and pixel shader model as version 3.0. 
 //
 //	If not OPENGL (so DirectX) is being used, then vertex and shader model is 
@@ -67,7 +67,7 @@ sampler2D SpriteTextureSampler = sampler_state
 //	---------------------------------------------------------------------------
 //	After defining the global scoped objects/variables, we'll next define any
 //	structs that are going to be used throughout the shader.  Structs here are 
-//	similar in idea s they are in C#, they are a way of grouping data properties
+//	similar in idea as they are in C#, they are a way of grouping data properties
 //	together.
 //	---------------------------------------------------------------------------
 
@@ -75,7 +75,7 @@ sampler2D SpriteTextureSampler = sampler_state
 //	the data struct that is returned back by the Vertex Shader function.  This struct
 //	by default contains the data for the Position, Color, and UV Texture Coordinates
 //	of the pixel that is going to be processed by the Fragment shader function.  
-//	The default name of this struct as 'VertextShaderOutput' can be confusing, as 
+//	The default name of this struct 'VertexShaderOutput' can be confusing, as 
 //	I'll point out in a moment.  I normally change the name of this to something
 //	more useful and less confusing, but will leave it as default for now.
 struct VertexShaderOutput
@@ -102,7 +102,7 @@ struct VertexShaderOutput
 //	-	Next define the Fragment Shader Function
 //
 //	In this basic shader that is created by default, we will not need to define
-//	any custom functions.  This basic shader also does not have a Vertext Function
+//	any custom functions.  This basic shader also does not have a Vertex Function
 //	defined.  Since we are only focused on Fragment Shaders, we'll only be seeing,
 //	the Fragment Shader Function here.  Just know that the typicaly order of 
 //	functions is the order of the list above.
@@ -111,7 +111,7 @@ struct VertexShaderOutput
 //	This is the Fragment Shader function.  By default, this function is called
 //	MainPS.  It can actually be called anything you want, and I usually change this
 //	to be called "FragmentShader".  If you want to change the name of this function,
-//	be sure to also change the call to it in the Pass at the end.  There will be a commennt
+//	be sure to also change the call to it in the Pass at the end.  There will be a comment
 //	below on where/how to do this.  For now, just know that MainPS by default is the
 //	fragment shader
 //
